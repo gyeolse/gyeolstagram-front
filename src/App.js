@@ -15,30 +15,33 @@ import styled from "styled-components";
 import { darkTheme, GlobalStyles, lightTheme } from "./styles";
 import SignUp from "./screens/SignUp";
 import routes from "./routes";
+import { HelmetProvider } from "react-helmet-async";
 
 function App() {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
   const darkMode = useReactiveVar(darkModeVar);
 
   return (
-    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-      <GlobalStyles />
-      <Router>
-        <Routes>
-          <Route
-            path={routes.home}
-            element={isLoggedIn ? <Home /> : <Login />}
-          ></Route>
-          {/* this is redirect option
+    <HelmetProvider>
+      <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+        <GlobalStyles />
+        <Router>
+          <Routes>
+            <Route
+              path={routes.home}
+              element={isLoggedIn ? <Home /> : <Login />}
+            ></Route>
+            {/* this is redirect option
         <Route path="*" element={<Navigate to="/" />}></Route> */}
-          <Route
-            path={routes.signUp}
-            element={!isLoggedIn ? <SignUp /> : null}
-          ></Route>
-          <Route path="*" element={<NotFound />}></Route>
-        </Routes>
-      </Router>
-    </ThemeProvider>
+            <Route
+              path={routes.signUp}
+              element={!isLoggedIn ? <SignUp /> : null}
+            ></Route>
+            <Route path="*" element={<NotFound />}></Route>
+          </Routes>
+        </Router>
+      </ThemeProvider>
+    </HelmetProvider>
   );
 }
 

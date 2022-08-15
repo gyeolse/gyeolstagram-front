@@ -7,12 +7,13 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import AuthLayout from "../components/auth/AuthLayout";
 import routes from "../routes";
-import BaseBox from "../components/shared/BaseBox";
 import Button from "../components/auth/Button";
 import Separator from "../components/auth/Separator";
 import Input from "../components/auth/Input";
 import FormBox from "../components/auth/FormBox";
 import BottomBox from "../components/auth/BottomBox";
+import PageTitle from "../components/PageTitle";
+
 const Title = styled.h1`
   color: ${(props) => props.theme.fontColor};
 `;
@@ -28,6 +29,8 @@ const FacebookLogin = styled.div`
 function Login() {
   return (
     <AuthLayout>
+      <PageTitle title="login" />
+      <title>Login</title>
       <FormBox>
         <div>
           <FontAwesomeIcon icon={faInstagram} size="3x" />
