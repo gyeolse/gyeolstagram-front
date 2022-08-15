@@ -50,3 +50,10 @@ router matching : `/` , `/banana/`, `/delicious/`
 - npm i styled-reset
 
 - background-color에 GobalStyle 에서 접근이 가능함
+
+#### Login Page
+
+- Container 만들기
+- Link Component : in react router dom.
+  link component return a href
+- login 하지 않았을 때만 접근하도록 `app.js` 수정
